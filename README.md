@@ -22,5 +22,7 @@ After that, I realized that the eBonus never actually sped up the algorithm - it
 Ultimately, while I settled on an algorithm, I realized that a lot of the efficiency variations between tests were random and came from how the characters were initially randomly seeded. And since perfectly matching the pre-ranked list was unnecessary, I modified the doListsMatch() function to only test for 80% consistency.
 
 Final algorithm:
+
 uBonus = 2.6 * 100 * difference in ranking
+
 uPenalty = 3.5 * 100 * difference in ranking
