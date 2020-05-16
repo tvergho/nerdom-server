@@ -3,6 +3,8 @@ import * as CharacterData from '../models/character_list';
 import Character from '../models/character_model';
 
 const axios = require('axios').default;
+const rp = require('request-promise');
+const $ = require('cheerio');
 
 const STAR_WARS_ROOT_API = 'https://swapi.dev/api';
 const HP_ROOT_API = 'https://www.potterapi.com/v1';
@@ -240,6 +242,20 @@ export const setScore = (req, res) => {
       rerankDatabase();
     })
     .catch((error) => {
+      res.status(500).json({ error });
+    });
+};
+
+// Scrape the Fandom page to get the image URL.
+export const getImage = (req, res) => {
+  const { url } = req.query;
+  rp(url)
+    .then((html) => {
+      // console.log($('.pi-image-thumbnail', html));
+      res.json({ src: $('.pi-image-thumbnail', html)[0].attribs.src });
+    })
+    .catch((error) => {
+      console.log(error);
       res.status(500).json({ error });
     });
 };
