@@ -22,5 +22,12 @@ After that, I realized that the eBonus never actually sped up the algorithm - it
 Ultimately, while I settled on an algorithm, I realized that a lot of the efficiency variations between tests were random and came from how the characters were initially randomly seeded. And since perfectly matching the pre-ranked list was unnecessary, I modified the doListsMatch() function to only test for 80% consistency.
 
 Final algorithm:
-- uBonus = Y * 100 * difference in ranking, Y = 2.6
-- uPenalty = Z * 100 * difference in ranking, Z = 3.5
+- uBonus = Y * difference in ranking, Y = 2.6
+- uPenalty = Z * difference in ranking, Z = 3.5
+
+## Constructing the Server
+The rest of the server side for this project was fairly straightforward. I defined seven routes, five for retreiving random characters and creating/updating the rankings, and two "helper functions" for populating new characters and resetting the rankings. To avoid accidental resets, the latter two functions require a JSON variable to be passed along with the POST request for any changes to the database to occur. 
+
+Because each API - in particular, the Harry Potter and LOTR APIs - returns an extremely long list of characters by default, I had to manually select the most prominent characters for inclusion in the final rankings. To do this, I wrote separate Node.js scripts for each API to output the name and ID of every available character. I then created constant arrays containing the 30 characters from each fandom I wanted to include and their respective IDs. 
+
+The trickiest part of the server was writing the rerankDatabase() function, to automatically correct the rankings once the characters' scores are updated. I spent a lot of time debugging a scoping issue with the forEach loop before realizing I could iterate through the object returned from the database with a normal for loop. 

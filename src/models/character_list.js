@@ -1,5 +1,5 @@
 // Pre-seeded.
-// [Name, Star Wars API ID]
+// [Name, API ID]
 export const STAR_WARS_CHARACTERS = [
   ['Yoda', 20],
   ['Luke Skywalker', 1],

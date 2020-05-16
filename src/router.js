@@ -8,6 +8,8 @@ router.route('/character/hp').get(Character.getHPCharacter);
 router.route('/character/lotr').get(Character.getLOTRCharacter);
 router.route('/rankings').get(Character.getRankings);
 router.route('/update').post(Character.updateRankings);
+
+// Helper functions.
 router.route('/populate').post(Character.populateCharacters);
 router.route('/deleteall').post(Character.deleteAll);
 

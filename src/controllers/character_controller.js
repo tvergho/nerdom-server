@@ -13,6 +13,7 @@ const lotrConfig = {
   headers: { Authorization: `Bearer ${LOTR_ACCESS_TOKEN}` },
 };
 
+// Returns { info (contains info from the database), detail (all the info provided by the API) }
 export const getStarWarsCharacter = (req, res) => {
   const totalCharacters = CharacterData.STAR_WARS_CHARACTERS.length;
   const character = CharacterData.STAR_WARS_CHARACTERS[Math.floor(Math.random() * totalCharacters)];
