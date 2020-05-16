@@ -228,7 +228,7 @@ export const deleteAll = (req, res) => {
         res.json({ message: 'Deletion successful' });
       })
       .catch((error) => {
-        console.log(error);
+        res.status(500).json({ error });
       });
   }
 };
@@ -236,9 +236,10 @@ export const deleteAll = (req, res) => {
 export const setScore = (req, res) => {
   Character.findOneAndUpdate({ name: req.body.name }, { score: req.body.score })
     .then((response) => {
-      this.rerankDatabase();
+      res.json({ message: 'Update successful' });
+      rerankDatabase();
     })
     .catch((error) => {
-      console.log(error);
+      res.status(500).json({ error });
     });
 };
