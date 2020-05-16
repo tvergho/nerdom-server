@@ -44,7 +44,7 @@ public class AlgorithmGenerator {
     private double uBonus(double diff) {
         // return (Math.round(Math.pow(diff, 1/y) * 100.0) / 100.0);
         // return (Math.round(Math.pow(diff, y) * 100.0) / 100.0);
-        return Math.round(diff * y * 100.0);
+        return Math.round(diff * y * 100.0) / 100.0;
         // return diff + y;
     }
 
@@ -55,7 +55,7 @@ public class AlgorithmGenerator {
     private double uPenalty(double diff) {
         // return -(Math.round(Math.pow(diff, 1/z) * 100.0) / 100.0);
         // return -(Math.round(Math.pow(diff, z) * 100.0) / 100.0);
-        return -(Math.round(diff * z * 100.0));
+        return -(Math.round(diff * z * 100.0) / 100.0);
         // return - (diff + z);
     }
 
@@ -197,7 +197,7 @@ public class AlgorithmGenerator {
         public String getName() { return name; }
         public double getScore() { return score; }
 
-        public void setScore(double score) { this.score = score; }
+        // public void setScore(double score) { this.score = score; }
         public void addToScore(double score) { this.score += score; }
 
         @Override
