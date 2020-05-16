@@ -112,8 +112,8 @@ export const updateRankings = async (req, res) => {
     winner = await Character.findByIdAndUpdate(winner._id, { score: winner.score + 1 });
   }
   if (diff2 > 0) {
-    await Character.findByIdAndUpdate(winner._id, { score: Math.min(winner.score + (diff1 * 2.6), winner.score + 30) });
-    await Character.findByIdAndUpdate(loser2._id, { score: Math.max(loser2.score - (diff1 * 3.5), loser2.score - 10) });
+    await Character.findByIdAndUpdate(winner._id, { score: Math.min(winner.score + (diff2 * 2.6), winner.score + 30) });
+    await Character.findByIdAndUpdate(loser2._id, { score: Math.max(loser2.score - (diff2 * 3.5), loser2.score - 10) });
   } else {
     await Character.findByIdAndUpdate(winner._id, { score: winner.score + 1 });
   }
