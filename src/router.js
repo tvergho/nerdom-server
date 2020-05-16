@@ -12,5 +12,6 @@ router.route('/update').post(Character.updateRankings);
 // Helper functions.
 router.route('/populate').post(Character.populateCharacters);
 router.route('/deleteall').post(Character.deleteAll);
+router.route('/setscore').post(Character.setScore);
 
 export default router;
