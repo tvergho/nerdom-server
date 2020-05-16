@@ -9,7 +9,7 @@ public class AlgorithmGenerator {
             "Leia", "Harry Potter", "Hermione Granger", "Frodo Baggins", "Lando"
     ));
     private final List<Character> characterList;
-    private static final double X = 0; // eBonus
+    private static final double X = 1; // eBonus
     private double y; // uBonus
     private double z; // uPenalty
     // Possibilities:

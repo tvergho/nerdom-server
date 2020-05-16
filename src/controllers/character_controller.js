@@ -104,13 +104,17 @@ export const updateRankings = async (req, res) => {
   const diff1 = winner.ranking - loser1.ranking;
   const diff2 = winner.ranking - loser2.ranking;
 
-  if (diff1 > 0) {
+  if (diff1 > 0) { // Unexpected loss.
     await Character.findByIdAndUpdate(winner._id, { score: winner.score + (diff1 * 2.6) });
     await Character.findByIdAndUpdate(loser1._id, { score: winner.score - (diff1 * 3.5) });
+  } else { // Expected win.
+    await Character.findByIdAndUpdate(winner._id, { score: winner.score + 1 });
   }
   if (diff2 > 0) {
     await Character.findByIdAndUpdate(winner._id, { score: winner.score + (diff2 * 2.6) });
     await Character.findByIdAndUpdate(loser2._id, { score: winner.score - (diff2 * 3.5) });
+  } else {
+    await Character.findByIdAndUpdate(winner._id, { score: winner.score + 1 });
   }
 
   rerankDatabase()
