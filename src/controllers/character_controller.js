@@ -9,7 +9,7 @@ const $ = require('cheerio');
 const STAR_WARS_ROOT_API = 'https://swapi.dev/api';
 const HP_ROOT_API = 'https://www.potterapi.com/v1';
 const HP_API_KEY = '$2a$10$s2vXN5qGJCl82l0kMAC55Otssd7L3c/K0K0JcHSgr4tA5z./E2Qdi';
-const LOTR_ROOT_API = 'https://the-one-api.herokuapp.com/v1';
+const LOTR_ROOT_API = 'https://the-one-api.dev/v2/';
 const LOTR_ACCESS_TOKEN = 'rIfs8ljjvKVfFdAv48Po';
 const lotrConfig = {
   headers: { Authorization: `Bearer ${LOTR_ACCESS_TOKEN}` },
